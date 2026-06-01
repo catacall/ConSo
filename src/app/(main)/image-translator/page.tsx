@@ -110,7 +110,7 @@ const ImageTranslator: React.FC = () => {
         throw new Error("Translation failed");
       }
 
-      const data = await response.json();
+      const data: any = await response.json();
       setProgress(100);
 
       if (data.responseStatus === 200) {

@@ -291,7 +291,7 @@ const FileConverter: React.FC = () => {
       if (contentType && contentType.includes("application/json")) {
         const errorData = await response.json();
         throw new Error(
-          errorData.error ||
+          (errorData as any).error ||
             `Conversion failed with status (${response.statusText})`,
         );
       }
