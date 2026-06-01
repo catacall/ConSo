@@ -776,22 +776,7 @@ const DashboardContent = (): JSX.Element => {
 
   const filteredFiles = getFilteredFiles();
 
-  // Show login message if user is not authenticated
-  if (!currentUser) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        <div className="text-center py-12 bg-white rounded-xl border border-gray-200 shadow-sm">
-          <DocumentArrowUpIcon className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-lg font-semibold text-gray-900">
-            Please sign in to view your dashboard
-          </h3>
-          <p className="mt-1 text-sm text-gray-500">
-            Sign in to access your uploaded files and dashboard features.
-          </p>
-        </div>
-      </div>
-    );
-  }
+
 
   const emptyConfig = tabEmptyConfig[activeTab];
 
@@ -806,6 +791,14 @@ const DashboardContent = (): JSX.Element => {
             Upload files directly or choose from our powerful micro-tools to process your documents, images, and more.
           </p>
         </div>
+
+        {!currentUser && (
+          <div className="mb-8 max-w-2xl mx-auto bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800 rounded-xl p-4 text-center">
+             <span className="text-indigo-800 dark:text-indigo-200 text-sm font-medium">
+               Want to securely save and access your files later? Click <strong>Profile</strong> in the top menu to Sign In or Create an Account!
+             </span>
+          </div>
+        )}
         
         {/* Direct Upload Integrated */}
         <div className="mb-12 max-w-3xl mx-auto">

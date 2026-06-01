@@ -30,11 +30,6 @@ export default function MainAppLayout({
     );
   }
 
-  if (!currentUser) {
-    // You can customize the onAuthSuccess if needed, or remove it.
-    return <Auth onAuthSuccess={() => {}} />;
-  }
-
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground suppressHydrationWarning">
       {/* The Header now only needs the onProfileClick prop! */}
@@ -42,7 +37,11 @@ export default function MainAppLayout({
 
       <main className="grow container mx-auto px-4 py-8 sm:p-6 lg:p-8">
         {showProfile ? (
-          <UserProfile onClose={() => setShowProfile(false)} />
+          !currentUser ? (
+            <Auth onAuthSuccess={() => {}} />
+          ) : (
+            <UserProfile onClose={() => setShowProfile(false)} />
+          )
         ) : (
           children // The content of your page.tsx files will be rendered here
         )}
