@@ -22,7 +22,7 @@ type SoundType =
   | "expand" // expand / open panel
   | "collapse"; // collapse / close panel
 
-const SOUNDS_ENABLED_KEY = "convertSign_sounds_enabled";
+const SOUNDS_ENABLED_KEY = "ConverTo_sounds_enabled";
 
 /** Read the user's stored preference (default: on). */
 export function getSoundsEnabled(): boolean {

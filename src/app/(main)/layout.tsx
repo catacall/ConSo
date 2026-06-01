@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,6 +15,12 @@ export default function MainAppLayout({
 }) {
   const [showProfile, setShowProfile] = useState(false);
   const { currentUser, loading } = useAuth();
+  const pathname = usePathname();
+
+  // Close profile automatically when navigating to a new route
+  useEffect(() => {
+    setShowProfile(false);
+  }, [pathname]);
 
   if (loading) {
     return (
@@ -29,7 +36,7 @@ export default function MainAppLayout({
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-indigo-200 dark:bg-gray-900 suppressHydrationWarning ">
+    <div className="min-h-screen flex flex-col bg-background text-foreground suppressHydrationWarning">
       {/* The Header now only needs the onProfileClick prop! */}
       <Header onProfileClick={() => setShowProfile(true)} />
 

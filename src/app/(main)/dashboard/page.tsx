@@ -36,8 +36,6 @@ import {
   XMarkIcon,
   FolderOpenIcon,
   ClockIcon,
-  SparklesIcon,
-  BugAntIcon,
 } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
 import { useFileContext } from "@/context/FileContext";
@@ -49,9 +47,13 @@ import { useToast } from "@/context/ToastContext";
 import PageTransition from "@/components/PageTransition";
 import Animatedbutton from "@/components/Animatedbutton";
 import { useSound } from "@/hooks/useSound";
-import { PiIcon } from "lucide-react";
-import { FcRemoveImage } from "react-icons/fc";
+import { 
+  FcImageFile, FcDocument, FcSettings, FcSignature, FcGrid, FcCamera,
+  FcComboChart, FcRefresh, FcSearch, FcFolder, FcFile, FcFullTrash,
+  FcGallery, FcPanorama, FcPrint, FcDataSheet, FcReading, FcRules
+} from "react-icons/fc";
 import { CgRemoveR } from "react-icons/cg";
+import FileUploader from "@/components/FileUploader";
 
 // Helper function to format bytes
 const formatBytes = (bytes: number, decimals: number = 2) => {
@@ -128,19 +130,19 @@ type ActiveTab = "all" | "images" | "documents" | "signatures" | "processed";
 const getFileIcon = (file: FileObject): JSX.Element => {
   const fileType = file.type.split("/")[0];
   if (file.type.includes("pdf")) {
-    return <DocumentIcon className="w-10 h-10 text-red-500" />;
+    return <FcDocument className="w-10 h-10" />;
   }
   if (file.type.includes("presentation") || file.type.includes("word")) {
-    return <DocumentIcon className="w-10 h-10 text-orange-500" />;
+    return <FcFile className="w-10 h-10" />;
   }
 
   switch (fileType) {
     case "image":
-      return <PhotoIcon className="w-10 h-10 text-blue-500" />;
+      return <FcImageFile className="w-10 h-10" />;
     case "application":
-      return <DocumentIcon className="w-10 h-10 text-gray-500" />;
+      return <FcDocument className="w-10 h-10" />;
     default:
-      return <DocumentIcon className="w-10 h-10 text-gray-400" />;
+      return <FcFile className="w-10 h-10" />;
   }
 };
 
@@ -157,194 +159,194 @@ const featureCards: FeatureCard[] = [
   {
     id: "background-remover",
     label: "Background Remover",
-    icon: <CgRemoveR className="w-8 h-8" />,
+    icon: <FcImageFile className="w-8 h-8" />,
     href: "/background-remover",
     description: "Remove image background instantly",
   },
   {
     id: "pdf-compress",
     label: "PDF Compressor",
-    icon: <DocumentIcon className="w-8 h-8" />,
+    icon: <FcSettings className="w-8 h-8" />,
     href: "/pdf-compress",
     description: "Reduce PDF file size",
   },
   {
     id: "image-compressor",
     label: "Image Compressor",
-    icon: <PhotoIcon className="w-8 h-8" />,
+    icon: <FcSettings className="w-8 h-8" />,
     href: "/image-compressor",
     description: "Compress images with quality control",
   },
   {
     id: "pdf-split",
     label: "PDF Splitter",
-    icon: <DocumentIcon className="w-8 h-8" />,
+    icon: <FcGrid className="w-8 h-8" />,
     href: "/pdf-split",
     description: "Split PDF into individual pages",
   },
   {
     id: "watermark",
     label: "Watermark Adder",
-    icon: <PhotoIcon className="w-8 h-8" />,
+    icon: <FcSignature className="w-8 h-8" />,
     href: "/watermark",
     description: "Add text watermark to images",
   },
   {
     id: "crop-rotate",
     label: "Crop & Rotate",
-    icon: <PhotoIcon className="w-8 h-8" />,
+    icon: <FcRefresh className="w-8 h-8" />,
     href: "/crop-rotate",
     description: "Crop, rotate and flip images",
   },
   {
     id: "color-picker",
     label: "Color Picker",
-    icon: <PhotoIcon className="w-8 h-8" />,
+    icon: <FcGallery className="w-8 h-8" />,
     href: "/color-picker",
     description: "Pick HEX/RGB/HSL from any image",
   },
   {
     id: "image-to-text",
     label: "Image To Text",
-    icon: <DocumentTextIcon className="w-8 h-8" />,
+    icon: <FcReading className="w-8 h-8" />,
     href: "/image-to-text",
   },
   {
     id: "jpg-to-word",
     label: "Jpg To Word",
-    icon: <DocumentIcon className="w-8 h-8" />,
+    icon: <FcFile className="w-8 h-8" />,
     href: "/jpg-to-word",
   },
   {
     id: "pdf-to-text",
     label: "Pdf To Text",
-    icon: <DocumentTextIcon className="w-8 h-8" />,
+    icon: <FcReading className="w-8 h-8" />,
     href: "/pdf-to-text",
   },
   {
     id: "pdf-to-word",
     label: "Pdf To Word",
-    icon: <DocumentIcon className="w-8 h-8" />,
+    icon: <FcFile className="w-8 h-8" />,
     href: "/pdf-to-word",
   },
   {
     id: "text-to-word",
     label: "Text To Word",
-    icon: <DocumentIcon className="w-8 h-8" />,
+    icon: <FcFile className="w-8 h-8" />,
     href: "/text-to-word",
   },
   {
     id: "invert-image",
     label: "Invert Image",
-    icon: <CameraIcon className="w-8 h-8" />,
+    icon: <FcPanorama className="w-8 h-8" />,
     href: "/invert-image",
   },
   {
     id: "text-to-image",
     label: "Text To Image",
-    icon: <PhotoIcon className="w-8 h-8" />,
+    icon: <FcImageFile className="w-8 h-8" />,
     href: "/text-to-image",
   },
   {
     id: "image-to-pdf",
     label: "Image To Pdf",
-    icon: <DocumentIcon className="w-8 h-8" />,
+    icon: <FcDocument className="w-8 h-8" />,
     href: "/image-to-pdf",
   },
   {
     id: "image-translator",
     label: "Image Translator",
-    icon: <LanguageIcon className="w-8 h-8" />,
+    icon: <FcRules className="w-8 h-8" />,
     href: "/image-translator",
   },
   {
     id: "qr-code-scanner",
     label: "Qr Code Scanner",
-    icon: <QrCodeIcon className="w-8 h-8" />,
+    icon: <FcSearch className="w-8 h-8" />,
     href: "/qr-scanner",
   },
   {
     id: "word-to-pdf",
     label: "Word To Pdf",
-    icon: <DocumentIcon className="w-8 h-8" />,
+    icon: <FcDocument className="w-8 h-8" />,
     href: "/word-to-pdf",
   },
   {
     id: "pdf-to-jpg",
     label: "Pdf To Jpg",
-    icon: <PhotoIcon className="w-8 h-8" />,
+    icon: <FcImageFile className="w-8 h-8" />,
     href: "/pdf-to-jpg",
   },
   {
     id: "merge-pdf",
     label: "Merge Pdf",
-    icon: <DocumentDuplicateIcon className="w-8 h-8" />,
+    icon: <FcDocument className="w-8 h-8" />,
     href: "/merge-pdf",
   },
   {
     id: "jpg-to-excel",
     label: "Jpg To Excel",
-    icon: <TableCellsIcon className="w-8 h-8" />,
+    icon: <FcDataSheet className="w-8 h-8" />,
     href: "/jpg-to-excel",
   },
   {
     id: "qr-code-generator",
     label: "Qr Code Generator",
-    icon: <QrCodeIcon className="w-8 h-8" />,
+    icon: <FcPrint className="w-8 h-8" />,
     href: "/qr-generator",
   },
   {
     id: "word-to-jpg",
     label: "Word To Jpg",
-    icon: <PhotoIcon className="w-8 h-8" />,
+    icon: <FcImageFile className="w-8 h-8" />,
     href: "/word-to-jpg",
   },
   {
     id: "pdf-to-excel",
     label: "Pdf To Excel",
-    icon: <TableCellsIcon className="w-8 h-8" />,
+    icon: <FcDataSheet className="w-8 h-8" />,
     href: "/pdf-to-excel",
   },
   {
     id: "barcode-scanner",
     label: "Barcode Scanner",
-    icon: <QrCodeIcon className="w-8 h-8" />,
+    icon: <FcSearch className="w-8 h-8" />,
     href: "/barcode-scanner",
   },
   {
     id: "excel-to-jpg",
     label: "Excel To Jpg",
-    icon: <PhotoIcon className="w-8 h-8" />,
+    icon: <FcImageFile className="w-8 h-8" />,
     href: "/excel-to-jpg",
   },
   {
     id: "pdf-to-csv",
     label: "Pdf To Csv",
-    icon: <TableCellsIcon className="w-8 h-8" />,
+    icon: <FcDataSheet className="w-8 h-8" />,
     href: "/convert",
   },
   {
     id: "html-to-pdf",
     label: "Html To Pdf",
-    icon: <CodeBracketIcon className="w-8 h-8" />,
+    icon: <FcDocument className="w-8 h-8" />,
     href: "/html-to-pdf",
   },
   {
     id: "pdf-to-html",
     label: "Pdf To Html",
-    icon: <CodeBracketIcon className="w-8 h-8" />,
+    icon: <FcRules className="w-8 h-8" />,
     href: "/convert",
   },
   {
     id: "resize-image",
     label: "Resize Image",
-    icon: <ArrowsPointingOutIcon className="w-8 h-8" />,
+    icon: <FcSettings className="w-8 h-8" />,
     href: "/resize",
   },
   {
     id: "signature",
     label: "Create Signature",
-    icon: <PencilSquareIcon className="w-8 h-8" />,
+    icon: <FcSignature className="w-8 h-8" />,
     href: "/signature",
   },
 ];
@@ -794,11 +796,19 @@ const DashboardContent = (): JSX.Element => {
 
   return (
     <PageTransition>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-slate-50 rounded-4xl dark:bg-slate-900 min-h-screen">
-        <div className="mb-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-background min-h-screen">
+        <div className="mb-10 mt-4 text-center">
+          <h2 className="text-3xl font-semibold tracking-[-1.28px] text-foreground mb-4">
             Explore
           </h2>
+          <p className="text-body text-base max-w-2xl mx-auto">
+            Upload files directly or choose from our powerful micro-tools to process your documents, images, and more.
+          </p>
+        </div>
+        
+        {/* Direct Upload Integrated */}
+        <div className="mb-12 max-w-3xl mx-auto">
+          <FileUploader />
         </div>
 
         {/* Stats Bar */}
@@ -812,18 +822,18 @@ const DashboardContent = (): JSX.Element => {
         />
 
         {/* Search and Filter Controls */}
-        <div className="mb-8 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <div className="mb-8 p-4 bg-canvas rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-hairline">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="relative grow">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <MagnifyingGlassIcon className="h-5 w-5 text-indigo-500" />
+                <MagnifyingGlassIcon className="h-5 w-5 text-mute" />
               </div>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 placeholder="Search files..."
-                className="block w-full h-11 rounded-xl border-slate-200 dark:border-slate-600 pl-10 pr-3 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all"
+                className="block w-full h-11 rounded-xl border-hairline pl-10 pr-3 bg-canvas-soft text-ink placeholder-mute focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none"
               />
             </div>
 
@@ -840,7 +850,7 @@ const DashboardContent = (): JSX.Element => {
                     setSortBy(e.target.value as SortBy);
                     play("toggle");
                   }}
-                  className="block w-full h-11 rounded-xl border-slate-200 dark:border-slate-600 pl-4 pr-10 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none cursor-pointer"
+                  className="block w-full h-11 rounded-xl border border-hairline pl-4 pr-10 bg-canvas-soft text-body focus:ring-2 focus:ring-primary focus:border-primary appearance-none cursor-pointer outline-none"
                 >
                   <option value="dateAdded">Date</option>
                   <option value="name">Name</option>
@@ -849,7 +859,7 @@ const DashboardContent = (): JSX.Element => {
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                   <ChevronDownIcon
-                    className="h-4 w-4 text-slate-500"
+                    className="h-4 w-4 text-mute"
                     aria-hidden="true"
                   />
                 </div>
@@ -858,13 +868,13 @@ const DashboardContent = (): JSX.Element => {
                 onClick={() =>
                   setSortDirection(sortDirection === "asc" ? "desc" : "asc")
                 }
-                className="h-11 w-11 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="h-11 w-11 flex items-center justify-center rounded-xl bg-canvas-soft border border-hairline hover:bg-hairline transition-colors"
                 aria-label="Toggle sort direction"
               >
                 {sortDirection === "asc" ? (
-                  <ChevronUpIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                  <ChevronUpIcon className="w-5 h-5 text-ink" />
                 ) : (
-                  <ChevronDownIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                  <ChevronDownIcon className="w-5 h-5 text-ink" />
                 )}
               </Animatedbutton>
 
@@ -878,8 +888,8 @@ const DashboardContent = (): JSX.Element => {
                   soundType="toggle"
                   className={`h-11 px-4 rounded-xl border text-sm font-semibold transition-all ${
                     isSelectMode
-                      ? "bg-indigo-600 text-white border-indigo-600"
-                      : "bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "bg-canvas-soft border-hairline text-body hover:bg-hairline"
                   }`}
                 >
                   {isSelectMode ? "Cancel" : "Select"}
@@ -928,7 +938,7 @@ const DashboardContent = (): JSX.Element => {
 
         {/* Tab navigation */}
         <div className="mb-8">
-          <div className="border-b border-slate-200 dark:border-slate-700">
+          <div className="border-b border-hairline">
             <nav className="-mb-px flex gap-6 overflow-x-auto scrollbar-hide px-1">
               {tabs.map(tab => {
                 const isActive = activeTab === tab.id;
@@ -942,13 +952,13 @@ const DashboardContent = (): JSX.Element => {
                       text-sm font-medium outline-none transition-colors duration-300
                       ${
                         isActive
-                          ? "text-indigo-600 dark:text-indigo-400"
-                          : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                          ? "text-primary"
+                          : "text-mute hover:text-ink"
                       }
                     `}
                   >
                     <span
-                      className={`absolute inset-0 rounded-lg bg-slate-100 dark:bg-slate-800 opacity-0 scale-95 transition-all duration-200 ease-out
+                      className={`absolute inset-0 rounded-lg bg-canvas-soft-2 opacity-0 scale-95 transition-all duration-200 ease-out
                       ${!isActive ? "group-hover:opacity-100 group-hover:scale-100" : ""}
                       `}
                     />
@@ -957,8 +967,8 @@ const DashboardContent = (): JSX.Element => {
                         React.cloneElement(tab.icon, {
                           className: `w-5 h-5 transition-colors duration-300 ${
                             isActive
-                              ? "text-indigo-500 dark:text-indigo-400 scale-110"
-                              : "text-slate-400 dark:text-slate-500 group-hover:text-slate-500 dark:group-hover:text-slate-300"
+                              ? "text-primary scale-110"
+                              : "text-mute group-hover:text-ink"
                           }`,
                         })}
                       <span>{tab.label}</span>
@@ -967,7 +977,7 @@ const DashboardContent = (): JSX.Element => {
                     {isActive && (
                       <motion.div
                         layoutId="activeTabIndicator"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-500 dark:bg-indigo-400 rounded-t-full"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-t-full"
                         initial={false}
                         transition={{
                           type: "spring",
@@ -1195,6 +1205,25 @@ const DashboardContent = (): JSX.Element => {
 
         {/* Quick Actions Grid */}
         <QuickActionsGrid router={router} />
+
+        {/* FAQ Section */}
+        <div className="mt-20 mb-8 max-w-4xl mx-auto">
+          <h3 className="text-3xl font-semibold tracking-tight text-ink mb-8 text-center">Frequently Asked Questions</h3>
+          <div className="space-y-4">
+            <div className="bg-canvas p-6 rounded-2xl border border-hairline shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-shadow">
+              <h4 className="font-semibold text-ink text-lg mb-2">Are my files secure?</h4>
+              <p className="text-body leading-relaxed">Yes. All file processing happens entirely within your web browser. We do not upload your documents or images to our servers. Your data remains strictly on your device.</p>
+            </div>
+            <div className="bg-canvas p-6 rounded-2xl border border-hairline shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-shadow">
+              <h4 className="font-semibold text-ink text-lg mb-2">Is ConverTo free?</h4>
+              <p className="text-body leading-relaxed">Absolutely. ConverTo provides over 30 micro-tools completely free of charge, with no hidden fees or subscriptions required.</p>
+            </div>
+            <div className="bg-canvas p-6 rounded-2xl border border-hairline shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-shadow">
+              <h4 className="font-semibold text-ink text-lg mb-2">Do I need an internet connection?</h4>
+              <p className="text-body leading-relaxed">Once the web application loads, many of the tools (like PDF compression and image conversion) work offline since the processing is handled client-side in your browser.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

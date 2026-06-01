@@ -14,17 +14,17 @@ const UserProfile: React.FC<userProfileProps> = ({ onClose }) => {
     await signOut();
   };
   return (
-    <div className=" min-h-screen mx-auto my-auto">
-      <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full mx-auto">
-        <div className="flex justify-between items-start mb-4">
-          <h2 className="text-2xl font-bold text-gray-800">My Profile</h2>
-          <button
+    <div className="flex flex-col items-center justify-center min-h-[70vh] w-full px-0 sm:px-4 py-8">
+      <div className="bg-canvas p-6 sm:rounded-2xl shadow-none sm:shadow-[0_8px_30px_rgb(0,0,0,0.12)] max-w-md w-full mx-auto border-y sm:border border-hairline">
+        <div className="flex justify-between items-center mb-6 pb-4 border-b border-hairline">
+          <h2 className="text-2xl font-bold text-ink">My Profile</h2>
+          <Animatedbutton
             onClick={onClose}
-            className="text-indigo-300 hover:text-indigo-500 hover:bg-sky-50 rounded-2xl"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-mute hover:text-ink hover:bg-canvas-soft rounded-lg transition-colors"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-4 w-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -33,10 +33,11 @@ const UserProfile: React.FC<userProfileProps> = ({ onClose }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-          </button>
+            Back
+          </Animatedbutton>
         </div>
 
         <div className="border-t border-b py-4 my-4">
@@ -48,7 +49,6 @@ const UserProfile: React.FC<userProfileProps> = ({ onClose }) => {
               <h3 className="font-medium text-lg text-gray-400">
                 {userProfile?.displayName || "User"}
               </h3>
-              <p className="text-gray-900 text-sm">{currentUser?.email}</p>
             </div>
           </div>
 

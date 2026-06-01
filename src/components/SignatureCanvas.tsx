@@ -79,10 +79,10 @@ const SignatureCanvas: React.FC = () => {
 
   // Available colors for the signature pen
   const availableColors: ColorOption[] = [
-    { label: "Black", value: "#000000" },
-    { label: "Blue", value: "#0000ff" },
-    { label: "Red", value: "#ff0000" },
-    { label: "Green", value: "#008000" },
+    { label: "Black", value: "#171717" },
+    { label: "Blue", value: "#0070f3" },
+    { label: "Navy", value: "#00254d" },
+    { label: "Red", value: "#ee0000" },
   ];
 
   // Available pen sizes
@@ -401,17 +401,17 @@ const SignatureCanvas: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 py-6">
       {/* Header */}
       <div className="flex items-center justify-center gap-3 mb-8">
-        <div className="p-2.5 bg-indigo-50 dark:bg-indigo-900/30 rounded-xl">
-          <PencilSquareIcon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+        <div className="p-2.5 bg-canvas-soft rounded-xl border border-hairline">
+          <PencilSquareIcon className="w-6 h-6 text-primary" />
         </div>
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-slate-200">
+        <h2 className="text-2xl font-bold text-ink">
           Create Signature
         </h2>
       </div>
 
       {/* Mode Switcher */}
       <div className="flex justify-center mb-6">
-        <div className="inline-flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl gap-1">
+        <div className="inline-flex bg-canvas-soft p-1 rounded-xl gap-1 border border-hairline">
           {(["draw", "type"] as SignMode[]).map(m => (
             <Animatedbutton
               key={m}
@@ -423,8 +423,8 @@ const SignatureCanvas: React.FC = () => {
               soundType="toggle"
               className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all ${
                 mode === m
-                  ? "bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-sm"
-                  : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
+                  ? "bg-canvas text-primary shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-hairline"
+                  : "text-mute hover:text-ink"
               }`}
             >
               {m === "draw" ? "✏️ Draw" : "⌨️ Type"}
@@ -440,21 +440,18 @@ const SignatureCanvas: React.FC = () => {
             {/* Canvas */}
             <div
               ref={containerRef}
-              className={`relative rounded-xl border-2 border-dashed overflow-hidden ${
-                bgStyle === "transparent"
-                  ? "border-slate-300 dark:border-slate-600"
-                  : "border-slate-200 dark:border-slate-600"
-              }`}
+              className={`relative rounded-xl border border-hairline overflow-hidden`}
               style={{
+                height: "350px",
                 background:
                   bgStyle === "transparent"
-                    ? "repeating-conic-gradient(#e2e8f0 0% 25%, white 0% 50%) 0 0 / 16px 16px"
+                    ? "repeating-conic-gradient(#f5f5f5 0% 25%, white 0% 50%) 0 0 / 16px 16px"
                     : "",
               }}
             >
               <canvas
                 ref={canvasRef}
-                className="w-full h-64 md:h-72 touch-none cursor-crosshair"
+                className="w-full h-full touch-none cursor-crosshair"
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
                 onMouseUp={endDrawing}

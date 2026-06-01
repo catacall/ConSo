@@ -24,7 +24,7 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
             <FileText size={32} className="text-white" />
           </div>
           <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            ConvertSign
+            ConverTo
           </h1>
           <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
             File Conversion, Resizer & Signature Tool

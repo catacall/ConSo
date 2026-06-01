@@ -19,16 +19,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ConvertSign — Free Document & Image Tools",
-    template: "%s | ConvertSign",
+    default: "ConverTo — Free Document & Image Tools Dashboard",
+    template: "%s | ConverTo",
   },
   description:
-    "Convert, sign and manage your digital documents with ease. 30+ free in-browser tools — PDF, image, signature, QR code and more. No upload, fully private.",
+    "ConverTo is a comprehensive document converting tool featuring a dashboard facility and numerous daily-use micro tools. Convert PDFs, edit images, and sign documents locally.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "ConvertSign",
+    title: "ConverTo",
   },
   icons: {
     apple: "/icon-192.png",
@@ -36,29 +36,34 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    siteName: "ConvertSign",
-    title: "ConvertSign — 30+ Free Document & Image Tools",
+    siteName: "ConverTo",
+    title: "ConverTo — Document Converting Tool & Micro Tools Dashboard",
     description:
-      "Convert PDFs, remove backgrounds, sign documents, compress files and more — all in-browser, no upload, completely free.",
-    url: "https://convertsign.vercel.app",
+      "ConverTo provides a dashboard facility with daily micro tools: PDF converter, image compressor, digital signature, and more. All in-browser, completely private.",
+    url: "https://ConverTo.vercel.app",
     images: [
       {
-        url: "https://convertsign.vercel.app/og-image.png",
+        url: "https://ConverTo.vercel.app/og-image.png",
         width: 1200,
         height: 630,
-        alt: "ConvertSign — Free Document & Image Tools",
+        alt: "ConverTo — Document & Image Tools",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ConvertSign — 30+ Free Document & Image Tools",
+    title: "ConverTo — Document Converting Tool & Micro Tools",
     description:
-      "PDF, image, signature, QR tools — all free, in-browser, no upload needed.",
-    images: ["https://convertsign.vercel.app/og-image.png"],
+      "Dashboard facility with daily micro tools: PDF, image, signature, QR tools — all free, in-browser, no upload needed.",
+    images: ["https://ConverTo.vercel.app/og-image.png"],
     creator: "@VeNOmAnas1",
   },
   keywords: [
+    "ConverTo",
+    "document converting tool",
+    "dashboard facility",
+    "micro tools",
+    "daily life tools",
     "PDF converter",
     "background remover",
     "digital signature",
@@ -68,6 +73,8 @@ export const metadata: Metadata = {
     "free online tools",
     "in-browser tools",
     "no upload PDF",
+    "online document converter",
+    "free PDF tools online",
   ],
 };
 

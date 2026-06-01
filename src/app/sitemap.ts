@@ -1,9 +1,10 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://convertsign.vercel.app";
+const BASE_URL = "https://ConverTo.vercel.app";
 
 const tools = [
-  { path: "/dashboard", priority: 1.0, changeFreq: "weekly" },
+  { path: "", priority: 1.0, changeFreq: "daily" },
+  { path: "/dashboard", priority: 0.9, changeFreq: "weekly" },
   { path: "/background-remover", priority: 0.9, changeFreq: "monthly" },
   { path: "/pdf-compress", priority: 0.9, changeFreq: "monthly" },
   { path: "/image-compressor", priority: 0.9, changeFreq: "monthly" },
@@ -12,7 +13,6 @@ const tools = [
   { path: "/crop-rotate", priority: 0.8, changeFreq: "monthly" },
   { path: "/color-picker", priority: 0.8, changeFreq: "monthly" },
   { path: "/signature", priority: 0.9, changeFreq: "monthly" },
-  { path: "/pricing", priority: 0.8, changeFreq: "monthly" },
   { path: "/upload", priority: 0.8, changeFreq: "monthly" },
   { path: "/convert", priority: 0.8, changeFreq: "monthly" },
   { path: "/pdf-to-word", priority: 0.8, changeFreq: "monthly" },

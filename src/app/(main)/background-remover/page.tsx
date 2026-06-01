@@ -6,7 +6,6 @@ import {
   PhotoIcon,
   ArrowDownTrayIcon,
   ArrowPathIcon,
-  SparklesIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import PageTransition from "@/components/PageTransition";
@@ -132,9 +131,9 @@ export default function BackgroundRemoverPage() {
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">
             Background Remover
           </h1>
-          <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+          <p className="text-body text-base max-w-xl mx-auto">
             Remove image backgrounds instantly — no upload to servers, no API
-            keys, completely private. Powered by WebAssembly AI.
+            keys, completely private. Processes securely in your browser.
           </p>
         </div>
 

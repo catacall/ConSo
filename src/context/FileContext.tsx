@@ -11,7 +11,7 @@ import { useAuth } from "@/context/AuthContext";
 import { getUserFiles, updateUserFiles, FileObject } from "@/utils/authUtils";
 import { get, set } from "idb-keyval";
 
-const FILES_KEY = "convertSign_files_v1";
+const FILES_KEY = "ConverTo_files_v1";
 
 interface FileContextType {
   files: FileObject[];

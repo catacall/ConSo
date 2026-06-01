@@ -70,7 +70,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onToggleForm }) => {
         Create Account
       </h2>
       <p className="text-slate-500 dark:text-slate-400 mb-6">
-        Get started with ConvertSign for free
+        Get started with ConverTo for free
       </p>
 
       {error && (

@@ -11,7 +11,7 @@ type Social = {
 };
 
 const socials: Social[] = [
-  { name: "Github", href: "https://github.com/Venomanas", icon: FaGithub },
+  { name: "Github", href: "https://github.com/catacall", icon: FaGithub },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/anas-sayyed-01a0b7271/",
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
               href="/dashboard"
               className="text-lg font-bold text-white hover:text-indigo-300 transition-colors"
             >
-              ConSo
+              ConverTo
             </Link>
         
           </div>
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-slate-700/50 pt-4">
           <p className="text-xs text-slate-500 text-center sm:text-left">
             &copy; {new Date().getFullYear()}{" "}
-            <span className="font-semibold text-slate-400">ConvertSign</span>,
+            <span className="font-semibold text-slate-400">ConverTo</span>,
             created by{" "}
             <a
               href="https://github.com/Venomanas"

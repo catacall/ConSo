@@ -17,7 +17,6 @@ const navItems = [
   { href: "/convert", label: "Convert" },
   { href: "/resize", label: "Resize" },
   { href: "/signature", label: "Signature" },
-  { href: "/pricing", label: "Pricing" },
 ];
 
 interface HeaderProps {
@@ -59,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ onProfileClick }) => {
               href="/dashboard"
               className="text-xl sm:text-2xl font-bold text-sky-50 hover:text-white transition-colors"
             >
-              ConSo
+              ConverTo
             </Link>
 
             {/* Desktop Navigation */}

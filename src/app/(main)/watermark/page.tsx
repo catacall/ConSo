@@ -16,7 +16,7 @@ export default function WatermarkPage() {
   const [origSrc, setOrigSrc] = useState<string | null>(null);
   const [resultSrc, setResultSrc] = useState<string | null>(null);
   const [fileName, setFileName] = useState("");
-  const [watermarkText, setWatermarkText] = useState("ConvertSign");
+  const [watermarkText, setWatermarkText] = useState("ConverTo");
   const [opacity, setOpacity] = useState(30);
   const [fontSize, setFontSize] = useState(48);
   const [angle, setAngle] = useState(-30);

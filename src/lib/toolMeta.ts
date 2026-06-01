@@ -6,164 +6,159 @@
 export const toolMeta: Record<string, { title: string; description: string }> =
   {
     "/background-remover": {
-      title: "Background Remover — Free AI Tool | ConvertSign",
+      title: "Background Remover — Free AI Tool | ConverTo",
       description:
         "Remove image backgrounds instantly with AI. 100% in-browser, no upload, no API key. Download transparent PNG for free.",
     },
     "/pdf-compress": {
-      title: "PDF Compressor — Reduce PDF Size Free | ConvertSign",
+      title: "PDF Compressor — Reduce PDF Size Free | ConverTo",
       description:
         "Reduce PDF file size without losing quality. Fully in-browser compression using pdf-lib. No upload, completely private.",
     },
     "/image-compressor": {
-      title: "Image Compressor — Compress JPG & PNG Free | ConvertSign",
+      title: "Image Compressor — Compress JPG & PNG Free | ConverTo",
       description:
         "Compress images online with adjustable quality. Reduce file size for JPG, PNG, WebP — 100% in-browser and free.",
     },
     "/pdf-split": {
-      title: "PDF Splitter — Split PDF Pages Free | ConvertSign",
+      title: "PDF Splitter — Split PDF Pages Free | ConverTo",
       description:
         "Split a multi-page PDF into individual pages instantly. No upload, works in-browser. Download all pages or one by one.",
     },
     "/watermark": {
-      title: "Watermark Adder — Add Text to Images Free | ConvertSign",
+      title: "Watermark Adder — Add Text to Images Free | ConverTo",
       description:
         "Add custom text watermarks to images. Control opacity, angle, size and color. Live preview — 100% private.",
     },
     "/pdf-to-word": {
-      title: "PDF to Word Converter — Free Online | ConvertSign",
+      title: "PDF to Word Converter — Free Online | ConverTo",
       description:
         "Convert PDF documents to editable Word format free. Extract text and structure from any PDF file.",
     },
     "/pdf-to-jpg": {
-      title: "PDF to JPG Converter — Free Online | ConvertSign",
+      title: "PDF to JPG Converter — Free Online | ConverTo",
       description:
         "Convert every PDF page to a JPG image instantly. Free, no watermark, no sign-up required.",
     },
     "/pdf-to-text": {
-      title: "PDF to Text Extractor — Free Online | ConvertSign",
+      title: "PDF to Text Extractor — Free Online | ConverTo",
       description:
         "Extract all text content from any PDF file in seconds. Fully in-browser, private, and free.",
     },
     "/pdf-to-excel": {
-      title: "PDF to Excel Converter — Free Online | ConvertSign",
+      title: "PDF to Excel Converter — Free Online | ConverTo",
       description:
         "Convert PDF tables and data into Excel spreadsheets. Free tool, no registration needed.",
     },
     "/image-to-text": {
-      title: "Image to Text (OCR) — Free Online | ConvertSign",
+      title: "Image to Text (OCR) — Free Online | ConverTo",
       description:
         "Extract text from images using OCR. Supports JPG, PNG, WebP — powered by Tesseract.js in your browser.",
     },
     "/image-to-pdf": {
-      title: "Image to PDF Converter — Free Online | ConvertSign",
+      title: "Image to PDF Converter — Free Online | ConverTo",
       description:
         "Convert JPG, PNG or any image to a PDF file instantly. In-browser, no upload, completely free.",
     },
     "/word-to-pdf": {
-      title: "Word to PDF Converter — Free Online | ConvertSign",
+      title: "Word to PDF Converter — Free Online | ConverTo",
       description:
         "Convert Word documents (DOCX) to PDF format free. Instant conversion, no file upload required.",
     },
     "/jpg-to-word": {
-      title: "JPG to Word Converter — Free Online | ConvertSign",
+      title: "JPG to Word Converter — Free Online | ConverTo",
       description:
         "Convert JPG images to editable Word documents using OCR. Free and private — runs entirely in your browser.",
     },
     "/jpg-to-excel": {
-      title: "JPG to Excel Converter — Free Online | ConvertSign",
+      title: "JPG to Excel Converter — Free Online | ConverTo",
       description:
         "Extract table data from JPG images into Excel. Free OCR-powered tool, no upload needed.",
     },
     "/merge-pdf": {
-      title: "Merge PDF Files — Free Online | ConvertSign",
+      title: "Merge PDF Files — Free Online | ConverTo",
       description:
         "Combine multiple PDF files into one document. Fast in-browser merge, no upload, completely free.",
     },
     "/qr-generator": {
-      title: "QR Code Generator — Free Online | ConvertSign",
+      title: "QR Code Generator — Free Online | ConverTo",
       description:
         "Generate custom QR codes for URLs, text, or any data. Instant download as PNG — free and private.",
     },
     "/qr-scanner": {
-      title: "QR Code Scanner — Free Online | ConvertSign",
+      title: "QR Code Scanner — Free Online | ConverTo",
       description:
         "Scan QR codes from images or your camera. In-browser QR reader, no app download required.",
     },
     "/barcode-scanner": {
-      title: "Barcode Scanner — Free Online | ConvertSign",
+      title: "Barcode Scanner — Free Online | ConverTo",
       description:
         "Scan barcodes from images or your webcam. Supports all common formats — EAN, UPC, Code 128 and more.",
     },
     "/signature": {
-      title: "Online Signature Creator — Draw or Type | ConvertSign",
+      title: "Online Signature Creator — Draw or Type | ConverTo",
       description:
         "Create a digital signature online. Draw, type, or upload your signature and save it as a PNG — free forever.",
     },
     "/sign-image": {
-      title: "Sign an Image — Add Signature to Image Free | ConvertSign",
+      title: "Sign an Image — Add Signature to Image Free | ConverTo",
       description:
         "Add your signature to any image or document. Drag-and-drop placement, download as PNG — free and private.",
     },
     "/resize": {
-      title: "Image Resizer — Resize Images Free Online | ConvertSign",
+      title: "Image Resizer — Resize Images Free Online | ConverTo",
       description:
         "Resize JPG, PNG, or WebP images to any dimension. Custom width & height, no quality loss. Free in-browser tool.",
     },
     "/invert-image": {
-      title: "Invert Image Colors — Free Online | ConvertSign",
+      title: "Invert Image Colors — Free Online | ConverTo",
       description:
         "Invert the colors of any image instantly. Creates a negative effect — download as PNG for free.",
     },
     "/html-to-pdf": {
-      title: "HTML to PDF Converter — Free Online | ConvertSign",
+      title: "HTML to PDF Converter — Free Online | ConverTo",
       description:
         "Convert HTML code or web pages to PDF. Paste HTML and download a formatted PDF — free tool.",
     },
     "/text-to-image": {
-      title: "Text to Image Generator — Free Online | ConvertSign",
+      title: "Text to Image Generator — Free Online | ConverTo",
       description:
         "Generate an image from your text. Custom fonts, colors and backgrounds — download as PNG free.",
     },
     "/text-to-word": {
-      title: "Text to Word Converter — Free Online | ConvertSign",
+      title: "Text to Word Converter — Free Online | ConverTo",
       description:
         "Convert plain text into a formatted Word document (DOCX). Free, instant, no sign-up.",
     },
     "/image-translator": {
-      title: "Image Translator — Translate Text in Images Free | ConvertSign",
+      title: "Image Translator — Translate Text in Images Free | ConverTo",
       description:
         "Detect and translate text found inside images. Supports multiple languages — free OCR + translation tool.",
     },
     "/excel-to-jpg": {
-      title: "Excel to JPG Converter — Free Online | ConvertSign",
+      title: "Excel to JPG Converter — Free Online | ConverTo",
       description:
         "Convert Excel spreadsheets to JPG images. Share spreadsheet data as an image — free and instant.",
     },
     "/word-to-jpg": {
-      title: "Word to JPG Converter — Free Online | ConvertSign",
+      title: "Word to JPG Converter — Free Online | ConverTo",
       description:
         "Convert Word documents to JPG images. Each page becomes an image — free online tool.",
     },
     "/upload": {
-      title: "Upload Files — ConvertSign",
+      title: "Upload Files — ConverTo",
       description:
-        "Upload your documents and images to ConvertSign. Start converting, signing, or editing in seconds.",
+        "Upload your documents and images to ConverTo. Start converting, signing, or editing in seconds.",
     },
     "/dashboard": {
-      title: "Dashboard — All Tools | ConvertSign",
+      title: "Dashboard — All Tools | ConverTo",
       description:
         "Access all 30+ free document and image tools in one place. Convert, sign, compress, split and more.",
-    },
-    "/pricing": {
-      title: "Pricing — Free & Pro Plans | ConvertSign",
-      description:
-        "ConvertSign is free forever. View our Pro plans for unlimited file sizes, batch processing and priority support.",
     },
   };
 
 export const defaultMeta = {
-  title: "ConvertSign — Free Document & Image Tools",
+  title: "ConverTo — Free Document & Image Tools",
   description:
     "Convert, sign and manage your digital documents with ease. 30+ free in-browser tools — PDF, image, signature, QR code and more. No upload, fully private.",
 };

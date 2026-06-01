@@ -1,6 +1,6 @@
 {
-  "name": "ConvertSign",
-  "short_name": "ConvertSign",
+  "name": "ConverTo",
+  "short_name": "ConverTo",
   "description": "Convert, sign and manage your digital documents with ease — fully in-browser.",
   "start_url": "/dashboard",
   "display": "standalone",

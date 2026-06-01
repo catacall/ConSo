@@ -65,7 +65,7 @@ export const createUser = async (
       }
 
       const existingUsers: UserFull[] = JSON.parse(
-        localStorage.getItem("convertSignUsers") || "[]"
+        localStorage.getItem("ConverToUsers") || "[]"
       );
       const emailExists = existingUsers.some(user => user.email === email);
 
@@ -88,7 +88,7 @@ export const createUser = async (
 
       // Add user to storage
       existingUsers.push(newUser);
-      localStorage.setItem("convertSignUsers", JSON.stringify(existingUsers));
+      localStorage.setItem("ConverToUsers", JSON.stringify(existingUsers));
 
       // Create user profile
       const profile: UserProfile = {
@@ -101,15 +101,15 @@ export const createUser = async (
 
       // Store profiles
       const profiles: UserProfile[] = JSON.parse(
-        localStorage.getItem("convertSignProfiles") || "[]"
+        localStorage.getItem("ConverToProfiles") || "[]"
       );
       profiles.push(profile);
-      localStorage.setItem("convertSignProfiles", JSON.stringify(profiles));
+      localStorage.setItem("ConverToProfiles", JSON.stringify(profiles));
 
       // Set current user in session
       const sessionUser: User = { uid, email };
       localStorage.setItem(
-        "convertSignCurrentUser",
+        "ConverToCurrentUser",
         JSON.stringify(sessionUser)
       );
 
@@ -137,7 +137,7 @@ export const signInUser = async (
         throw new Error("This function must be called in a browser");
       }
       const users: UserFull[] = JSON.parse(
-        localStorage.getItem("convertSignUsers") || "[]"
+        localStorage.getItem("ConverToUsers") || "[]"
       );
       const user = users.find(
         u => u.email === email && u.password === password
@@ -150,7 +150,7 @@ export const signInUser = async (
       // Set current user in session
       const sessionUser: User = { uid: user.uid, email: user.email };
       localStorage.setItem(
-        "convertSignCurrentUser",
+        "ConverToCurrentUser",
         JSON.stringify(sessionUser)
       );
 
@@ -167,7 +167,7 @@ export const signInUser = async (
 export const signOutUser = async (): Promise<void> => {
   return new Promise(resolve => {
     // Remove current user from session
-    localStorage.removeItem("convertSignCurrentUser");
+    localStorage.removeItem("ConverToCurrentUser");
 
     // Simulate network delay
     setTimeout(() => resolve(), 500);
@@ -181,7 +181,7 @@ export const getCurrentUser = (): User | null => {
   try {
     if (typeof window === "undefined") return null;
 
-    const userString = localStorage.getItem("convertSignCurrentUser");
+    const userString = localStorage.getItem("ConverToCurrentUser");
     return userString ? JSON.parse(userString) : null;
   } catch {
     return null;
@@ -198,7 +198,7 @@ export const getUserProfile = (uid: string): UserProfile | null => {
   try {
     if (typeof window === "undefined") return null;
     const profiles: UserProfile[] = JSON.parse(
-      localStorage.getItem("convertSignProfiles") || "[]"
+      localStorage.getItem("ConverToProfiles") || "[]"
     );
     return profiles.find(profile => profile.uid === uid) || null;
   } catch {
@@ -218,13 +218,13 @@ export const updateUserProfile = (
   try {
     if (typeof window === "undefined") return null;
     const profiles: UserProfile[] = JSON.parse(
-      localStorage.getItem("convertSignProfiles") || "[]"
+      localStorage.getItem("ConverToProfiles") || "[]"
     );
     const updatedProfiles = profiles.map(profile =>
       profile.uid === uid ? { ...profile, ...updates } : profile
     );
     localStorage.setItem(
-      "convertSignProfiles",
+      "ConverToProfiles",
       JSON.stringify(updatedProfiles)
     );
     return getUserProfile(uid);
@@ -243,7 +243,7 @@ export const updateUserProfile = (
 export const getUserFiles = (uid: string): FileObject[] => {
   try {
     if (typeof window === "undefined") return [];
-    const userFilesKey = `convertSignFiles_${uid}`;
+    const userFilesKey = `ConverToFiles_${uid}`;
     return JSON.parse(localStorage.getItem(userFilesKey) || "[]");
   } catch {
     return [];
@@ -256,12 +256,12 @@ export const getUserFiles = (uid: string): FileObject[] => {
  */
 export const updateUserFiles = (uid: string, files: FileObject[]): void => {
   try {
-    const userFilesKey = `convertSignFiles_${uid}`;
+    const userFilesKey = `ConverToFiles_${uid}`;
     localStorage.setItem(userFilesKey, JSON.stringify(files));
 
     // Update user stats
     const profiles = JSON.parse(
-      localStorage.getItem("convertSignProfiles") || "[]"
+      localStorage.getItem("ConverToProfiles") || "[]"
     );
     const updatedProfiles = profiles.map((profile: { uid: string }) => {
       if (profile.uid === uid) {
@@ -270,7 +270,7 @@ export const updateUserFiles = (uid: string, files: FileObject[]): void => {
       return profile;
     });
     localStorage.setItem(
-      "convertSignProfiles",
+      "ConverToProfiles",
       JSON.stringify(updatedProfiles)
     );
   } catch (error) {
@@ -292,14 +292,14 @@ export const recordUserActivity = (
   try {
     if (typeof window === "undefined") return;
     const activities = JSON.parse(
-      localStorage.getItem(`convertSignActivities_${uid}`) || "[]"
+      localStorage.getItem(`ConverToActivities_${uid}`) || "[]"
     );
     activities.push({
       ...activity,
       timestamp: new Date().toISOString(),
     });
     localStorage.setItem(
-      `convertSignActivities_${uid}`,
+      `ConverToActivities_${uid}`,
       JSON.stringify(activities)
     );
   } catch (error) {
@@ -316,7 +316,7 @@ export const getUserActivities = (uid: string): UserActivity[] => {
   try {
     if (typeof window === "undefined") return [];
     return JSON.parse(
-      localStorage.getItem(`convertSignActivities_${uid}`) || "[]"
+      localStorage.getItem(`ConverToActivities_${uid}`) || "[]"
     );
   } catch {
     return [];

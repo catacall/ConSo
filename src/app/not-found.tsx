@@ -10,7 +10,6 @@ const quickLinks = [
   { href: "/background-remover", label: "✨ Background Remover" },
   { href: "/signature", label: "✍️ Create Signature" },
   { href: "/pdf-compress", label: "📄 PDF Compressor" },
-  { href: "/pricing", label: "💰 Pricing" },
 ];
 
 export default function NotFound() {
@@ -98,7 +97,7 @@ export default function NotFound() {
 
       {/* Branding */}
       <p className="text-xs text-slate-400 dark:text-slate-600">
-        ConvertSign — Free in-browser document tools
+        ConverTo — Free in-browser document tools
       </p>
     </div>
   );

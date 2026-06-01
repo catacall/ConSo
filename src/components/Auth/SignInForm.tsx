@@ -59,7 +59,7 @@ const SignInForm: React.FC<SignInFormProps> = ({ onToggleForm }) => {
         Welcome Back
       </h2>
       <p className="text-slate-500 dark:text-slate-400 mb-6">
-        Sign in to continue to ConvertSign
+        Sign in to continue to ConverTo
       </p>
 
       {error && (
