@@ -35,15 +35,30 @@ const Footer: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Top row: brand + quick links + socials */}
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-6">
-          {/* Brand */}
           <div>
             <Link
               href="/dashboard"
-              className="text-lg font-bold text-white hover:text-indigo-300 transition-colors"
+              className="text-xl font-bold text-white hover:text-indigo-300 transition-colors block mb-2"
             >
               ConverTo
             </Link>
-        
+            <p className="text-sm text-slate-400 max-w-xs">
+              Your privacy-first digital assistant for document and image processing.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm">
+            <nav className="flex flex-col space-y-2">
+              <span className="font-semibold text-white mb-1">Legal</span>
+              <Link href="/privacy-policy" className="text-slate-400 hover:text-indigo-300 transition-colors">Privacy Policy</Link>
+              <Link href="/terms-of-service" className="text-slate-400 hover:text-indigo-300 transition-colors">Terms of Service</Link>
+            </nav>
+            <nav className="flex flex-col space-y-2">
+              <span className="font-semibold text-white mb-1">Company</span>
+              <Link href="/about-us" className="text-slate-400 hover:text-indigo-300 transition-colors">About Us</Link>
+              <Link href="/contact-us" className="text-slate-400 hover:text-indigo-300 transition-colors">Contact Us</Link>
+            </nav>
           </div>
 
           {/* Socials */}

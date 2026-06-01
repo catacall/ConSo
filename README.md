@@ -4,12 +4,12 @@
 
 **ConverTo** is a comprehensive document converting tool featuring a user-friendly dashboard and a suite of powerful micro-tools designed to simplify your daily digital life. From converting PDFs and extracting text, to manipulating images and creating digital signatures, ConverTo brings everything into a single, seamless web experience.
 
-[![Deploy with Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat-square&logo=vercel)](https://ConverTo.vercel.app)
+[![Deploy with Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=flat-square&logo=vercel)](https://convertotools.com)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[🚀 **Live App**](https://ConverTo.vercel.app)
+[🚀 **Live App**](https://convertotools.com)
 
 </div>
 

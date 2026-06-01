@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/context/ToastContext";
@@ -40,10 +41,10 @@ export const metadata: Metadata = {
     title: "ConverTo — Document Converting Tool & Micro Tools Dashboard",
     description:
       "ConverTo provides a dashboard facility with daily micro tools: PDF converter, image compressor, digital signature, and more. All in-browser, completely private.",
-    url: "https://ConverTo.vercel.app",
+    url: "https://convertotools.com",
     images: [
       {
-        url: "https://ConverTo.vercel.app/og-image.png",
+        url: "https://convertotools.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "ConverTo — Document & Image Tools",
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
     title: "ConverTo — Document Converting Tool & Micro Tools",
     description:
       "Dashboard facility with daily micro tools: PDF, image, signature, QR tools — all free, in-browser, no upload needed.",
-    images: ["https://ConverTo.vercel.app/og-image.png"],
+    images: ["https://convertotools.com/og-image.png"],
     creator: "@VeNOmAnas1",
   },
   keywords: [
@@ -98,6 +99,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XH8FXHMQ29"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XH8FXHMQ29');
+            `,
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <AuthProvider>
             <FileProvider>

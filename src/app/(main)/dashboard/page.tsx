@@ -43,6 +43,8 @@ import { useAuth } from "@/context/AuthContext";
 import { downloadFile } from "@/utils/fileUtils";
 import { FileObject } from "@/utils/authUtils";
 import { useRouter } from "next/navigation";
+import FileUploader from "@/components/FileUploader";
+import FAQSection from "@/components/FAQSection";
 import { useToast } from "@/context/ToastContext";
 import PageTransition from "@/components/PageTransition";
 import Animatedbutton from "@/components/Animatedbutton";
@@ -53,7 +55,6 @@ import {
   FcGallery, FcPanorama, FcPrint, FcDataSheet, FcReading, FcRules
 } from "react-icons/fc";
 import { CgRemoveR } from "react-icons/cg";
-import FileUploader from "@/components/FileUploader";
 
 // Helper function to format bytes
 const formatBytes = (bytes: number, decimals: number = 2) => {
@@ -1207,23 +1208,7 @@ const DashboardContent = (): JSX.Element => {
         <QuickActionsGrid router={router} />
 
         {/* FAQ Section */}
-        <div className="mt-20 mb-8 max-w-4xl mx-auto">
-          <h3 className="text-3xl font-semibold tracking-tight text-ink mb-8 text-center">Frequently Asked Questions</h3>
-          <div className="space-y-4">
-            <div className="bg-canvas p-6 rounded-2xl border border-hairline shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-shadow">
-              <h4 className="font-semibold text-ink text-lg mb-2">Are my files secure?</h4>
-              <p className="text-body leading-relaxed">Yes. All file processing happens entirely within your web browser. We do not upload your documents or images to our servers. Your data remains strictly on your device.</p>
-            </div>
-            <div className="bg-canvas p-6 rounded-2xl border border-hairline shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-shadow">
-              <h4 className="font-semibold text-ink text-lg mb-2">Is ConverTo free?</h4>
-              <p className="text-body leading-relaxed">Absolutely. ConverTo provides over 30 micro-tools completely free of charge, with no hidden fees or subscriptions required.</p>
-            </div>
-            <div className="bg-canvas p-6 rounded-2xl border border-hairline shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-shadow">
-              <h4 className="font-semibold text-ink text-lg mb-2">Do I need an internet connection?</h4>
-              <p className="text-body leading-relaxed">Once the web application loads, many of the tools (like PDF compression and image conversion) work offline since the processing is handled client-side in your browser.</p>
-            </div>
-          </div>
-        </div>
+        <FAQSection />
       </div>
     </PageTransition>
   );

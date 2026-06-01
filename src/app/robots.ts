@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://ConverTo.vercel.app/sitemap.xml",
+    sitemap: "https://convertotools.com/sitemap.xml",
   };
 }

@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://ConverTo.vercel.app";
+const BASE_URL = "https://convertotools.com";
 
 const tools = [
   { path: "", priority: 1.0, changeFreq: "daily" },
@@ -37,14 +37,42 @@ const tools = [
   { path: "/qr-scanner", priority: 0.6, changeFreq: "monthly" },
   { path: "/barcode-scanner", priority: 0.6, changeFreq: "monthly" },
   { path: "/sign-image", priority: 0.7, changeFreq: "monthly" },
+  { path: "/privacy-policy", priority: 0.5, changeFreq: "monthly" },
+  { path: "/terms-of-service", priority: 0.5, changeFreq: "monthly" },
+  { path: "/about-us", priority: 0.6, changeFreq: "monthly" },
+  { path: "/contact-us", priority: 0.6, changeFreq: "monthly" },
 ];
 
+import fs from "fs";
+import path from "path";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return tools.map(tool => ({
-    url: `${BASE_URL}${tool.path}`,
-    lastModified: new Date(),
-    changeFrequency:
-      tool.changeFreq as MetadataRoute.Sitemap[0]["changeFrequency"],
-    priority: tool.priority,
-  }));
+  return tools.map(tool => {
+    let lastModified = new Date();
+
+    try {
+      let filePath = "";
+      if (tool.path === "") {
+        // Root path
+        filePath = path.join(process.cwd(), "src", "app", "page.tsx");
+      } else {
+        // App router routes under (main)
+        filePath = path.join(process.cwd(), "src", "app", "(main)", tool.path, "page.tsx");
+      }
+
+      if (fs.existsSync(filePath)) {
+        const stat = fs.statSync(filePath);
+        lastModified = stat.mtime;
+      }
+    } catch (e) {
+      // fallback to current date
+    }
+
+    return {
+      url: `${BASE_URL}${tool.path}`,
+      lastModified,
+      changeFrequency: tool.changeFreq as MetadataRoute.Sitemap[0]["changeFrequency"],
+      priority: tool.priority,
+    };
+  });
 }
