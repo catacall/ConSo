@@ -116,7 +116,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <AuthProvider>
             <FileProvider>
               <ToastProvider>
